@@ -27,9 +27,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
         inputTask.completed = !inputTask.completed;
       },
 
-      deleteTask: function(inputTask) {
-        var index = this.tasks.indexOf(inputTask);
-        this.tasks.splice(index, 1);
+      deleteTask: function() {
+        let incompleteTask = [];
+        for(let task of this.tasks) {
+          if (!task.completed) {
+            incompleteTask.push(task);
+          }
+        }
+        this.tasks = incompleteTask;
       },
 
       numberOfIncompleteTasks: function() {

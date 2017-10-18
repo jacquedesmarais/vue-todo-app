@@ -5,10 +5,10 @@
       <div v-bind:class="{ strike: task.completed }">
         <h3 v-on:click="toggleCompleted(task)">{{ task.text }} - priority: {{ task.priority }}</h3>
       </div>
-      <h6 v-on:click="deleteTask(task)">delete</h6>
     </div>
   <h4>Add a Task</h4>
   Task: <input v-model="newTaskText"><br>
   Priority: <input v-model="newTaskPriority" placeholder="a number 1 - 10"><br>
-  <button v-on:click="addTask()">Add Task</button>
+  <button v-on:click="addTask()">Add Task</button><br>
+  <button v-on:click="deleteTask()">Clear Completed Tasks</button>
 </div>
