@@ -1,11 +1,14 @@
 <div id="app">
   <h2>To Do:</h2>
-    <div v-for="task in tasks" v-on:click="removeTask(task)">
-      <h3>Task: {{ task.text }}</h3>
-      <h3>Priority: {{ task.priority }}</h3>
+    <h4>Incomplete Tasks: {{ tasks.length }}</h4>
+    <div v-for="task in tasks">
+      <div v-bind:class="{ strike: task.completed }">
+        <h3 v-on:click="toggleCompleted(task)">{{ task.text }} - priority: {{ task.priority }}</h3>
+      </div>
+      <h6 v-on:click="deleteTask(task)">delete</h6>
     </div>
   <h4>Add a Task</h4>
   Task: <input v-model="newTaskText"><br>
-  Priority: <input v-model="newTaskPriority"><br>
+  Priority: <input v-model="newTaskPriority" placeholder="a number 1 - 10"><br>
   <button v-on:click="addTask()">Add Task</button>
 </div>

@@ -14,17 +14,23 @@ document.addEventListener("DOMContentLoaded", function(event) {
         if (this.newTaskText && this.newTaskPriority) {
           var newTask = {
                         text: this.newTaskText,
-                        priority: this.newTaskPriority
+                        priority: this.newTaskPriority,
+                        completed: false
           };
           this.tasks.push(newTask);
           this.newTaskText = "";
           this.newTaskPriority = "";
         }
       },
-      removeTask: function(inputTask) {
-        var index = this.tasks.indexOf(inputTask);
-        this.tasks.splice(index,1);
+
+      toggleCompleted: function(inputTask) {
+        inputTask.completed = !inputTask.completed;
       },
+
+      deleteTask: function(inputTask) {
+        var index = this.tasks.indexOf(inputTask);
+        this.tasks.splice(index, 1);
+      }
     },
     computed: {
 
