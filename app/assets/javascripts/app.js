@@ -30,6 +30,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
       deleteTask: function(inputTask) {
         var index = this.tasks.indexOf(inputTask);
         this.tasks.splice(index, 1);
+      },
+
+      numberOfIncompleteTasks: function() {
+        var count = 0;
+        for (let task of this.tasks) {
+          if (!task.completed) {
+            count++;
+          }
+        }
+        return count;
       }
     },
     computed: {
